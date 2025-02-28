@@ -116,19 +116,8 @@ export default function Testimonials() {
               gradientTo="violet-600"
             />
           </div>
-          
-          <div>
-            <Testimonial 
-              quote="I am very happy with the results. Sold my old commuter bike in less than a week!"
-              author="Sam"
-              handle="@sama"
-              position="Urban Cyclist"
-              gradientFrom="cyan-400"
-              gradientTo="sky-600"
-            />
-          </div>
         </div>
       </div>
     </section>
   )
-} 
+}
