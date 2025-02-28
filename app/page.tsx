@@ -50,11 +50,11 @@ export default function SyntheticV0PageForDeployment() {
                 <input
                   type="text"
                   placeholder="Search bicycles..."
-                  className="px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-black text-white rounded-r-md hover:bg-gray-800 transition-colors"
+                  className="px-4 py-2 bg-slate-700 text-white rounded-r-md hover:bg-slate-600 transition-colors"
                 >
                   Search
                 </button>
@@ -62,7 +62,7 @@ export default function SyntheticV0PageForDeployment() {
               {/* Sign In Button */}
               <Link
                 href="/signin"
-                className="inline-block bg-black py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-gray-800 transition-colors"
+                className="inline-block bg-slate-700 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-slate-600 transition-colors"
               >
                 Sign In
               </Link>
@@ -85,11 +85,14 @@ export default function SyntheticV0PageForDeployment() {
         </div>
       </div>
 
-      {/* Featured Bikes Section */}
-      <div className="bg-white">
+      {/* Featured Categories - Now moved up */}
+      <FeaturedCategories />
+
+      {/* Featured Bikes Section - Now with gray background */}
+      <div className="bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Bikes</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Discover Top Bikes</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Explore our selection of premium bicycles.
             </p>
@@ -119,14 +122,11 @@ export default function SyntheticV0PageForDeployment() {
         </div>
       </div>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section - Now with white background */}
       <Testimonials />
 
       {/* Sign Up Banner */}
       <SignUpBanner />
-
-      {/* Featured Categories */}
-      <FeaturedCategories />
 
       {/* Footer */}
       <Footer />
