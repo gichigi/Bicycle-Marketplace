@@ -1,75 +1,132 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 interface TestimonialProps {
-  quote: string
-  author: string
-  role: string
-  initials: string
-  type: "buyer" | "seller" | "both"
+  quote: string;
+  author: string;
+  handle: string;
+  position?: string;
+  gradientFrom: string;
+  gradientTo: string;
+  size?: "small" | "large";
 }
 
-function Testimonial({ quote, author, role, initials, type }: TestimonialProps) {
+function Testimonial({ 
+  quote, 
+  author, 
+  handle, 
+  position, 
+  gradientFrom, 
+  gradientTo,
+  size = "small" 
+}: TestimonialProps) {
   return (
-    <Card className="h-full bg-white shadow-sm hover:shadow-md transition-shadow border-t-4 border-slate-600">
-      <CardContent className="p-6 pt-8 flex flex-col h-full">
-        <div className="flex items-start mb-4">
-          <span className="text-slate-400 text-4xl font-serif">"</span>
-        </div>
-        <blockquote className="text-gray-700 flex-grow italic">
-          {quote}
-        </blockquote>
-        <div className="flex items-end mb-2">
-          <span className="text-slate-400 text-4xl font-serif ml-auto">"</span>
+    <Card className={`h-full bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-200 rounded-xl overflow-hidden ${size === "large" ? "row-span-2" : ""}`}>
+      <CardContent className="p-0">
+        <div className="flex flex-col h-full">
+          <div className="p-6">
+            <div className="flex items-center mb-4">
+              <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-${gradientFrom} to-${gradientTo} mr-3 flex-shrink-0`}></div>
+              <div>
+                <p className="font-semibold text-gray-900">{author}</p>
+                <p className="text-sm text-gray-500">{handle}</p>
+                {position && <p className="text-xs text-gray-400">{position}</p>}
+              </div>
+            </div>
+            <blockquote className="text-gray-700">
+              {size === "large" ? (
+                <p className="text-lg font-medium mb-2">"{quote}"</p>
+              ) : (
+                <p className="text-sm">"{quote}"</p>
+              )}
+            </blockquote>
+          </div>
         </div>
       </CardContent>
-      <CardFooter className="px-6 pb-6 pt-0 flex items-center">
-        <Avatar className="h-10 w-10 mr-3 border-2 border-slate-200">
-          <AvatarFallback className="bg-slate-100 text-slate-600">{initials}</AvatarFallback>
-        </Avatar>
-        <div>
-          <p className="font-medium text-slate-800">{author}</p>
-          <p className="text-sm text-slate-500">{role}</p>
-        </div>
-        <Badge variant="outline" className="ml-auto">
-          {type === "buyer" ? "Buyer" : type === "seller" ? "Seller" : "Buyer & Seller"}
-        </Badge>
-      </CardFooter>
     </Card>
   )
 }
 
 export default function Testimonials() {
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-100 to-gray-200">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-4 text-slate-800">What Our Users Say</h2>
-        <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-          Hear from our community of cyclists who have found their perfect rides or sold their bicycles on our marketplace.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Testimonial 
-            quote="I found my dream bike on this marketplace. The process was smooth and the seller was great! Would definitely recommend to any cycling enthusiast."
-            author="Sarah L." 
-            role="Mountain Bike Enthusiast"
-            initials="SL"
-            type="buyer"
-          />
-          <Testimonial 
-            quote="As a seller, I appreciate how easy it is to list and manage my bike inventory here. The platform is intuitive and the customer support is excellent."
-            author="Mike T." 
-            role="Bike Shop Owner"
-            initials="MT"
-            type="seller"
-          />
-          <Testimonial 
-            quote="The variety of bikes available is impressive. I've both bought and sold here with great experiences. This has become my go-to platform for all things bicycle."
-            author="Emma R." 
-            role="Cycling Enthusiast"
-            initials="ER"
-            type="both"
-          />
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Don't take it from us</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            See what other people have to say.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
+          {/* Featured testimonial - spans 2 rows */}
+          <div className="lg:col-span-1 row-span-2">
+            <Testimonial 
+              quote="This is the best thing since sliced bread. I cannot believe I did not think of it myself. The bicycle marketplace has completely transformed how I buy and sell bikes. The interface is intuitive, the community is fantastic, and I've found some incredible deals."
+              author="Parl Coppa"
+              handle="@coppalipse"
+              position="Professional Cyclist"
+              gradientFrom="blue-400"
+              gradientTo="indigo-600"
+              size="large"
+            />
+          </div>
+          
+          {/* Regular testimonials */}
+          <div>
+            <Testimonial 
+              quote="After using this, I cannot imagine going back to the old way of doing things. The bicycle marketplace has made finding rare parts so much easier!"
+              author="Mathew"
+              handle="@heymatt_oo"
+              position="Mountain Bike Enthusiast"
+              gradientFrom="emerald-400"
+              gradientTo="teal-600"
+            />
+          </div>
+          
+          <div>
+            <Testimonial 
+              quote="Can easily recommend! Found my dream road bike in just two days of browsing."
+              author="Alex"
+              handle="@alex"
+              position="Weekend Rider"
+              gradientFrom="amber-400"
+              gradientTo="orange-600"
+            />
+          </div>
+          
+          <div>
+            <Testimonial 
+              quote="Perfect for my use case. I sell vintage bicycles and this platform connects me with the right buyers."
+              author="Joshua"
+              handle="@joshua"
+              position="Vintage Bike Collector"
+              gradientFrom="rose-400"
+              gradientTo="pink-600"
+            />
+          </div>
+          
+          <div>
+            <Testimonial 
+              quote="Excellent product! The verification process ensures I'm buying quality bikes from trusted sellers."
+              author="Mandy"
+              handle="@mandy"
+              position="Triathlon Competitor"
+              gradientFrom="purple-400"
+              gradientTo="violet-600"
+            />
+          </div>
+          
+          <div>
+            <Testimonial 
+              quote="I am very happy with the results. Sold my old commuter bike in less than a week!"
+              author="Sam"
+              handle="@sama"
+              position="Urban Cyclist"
+              gradientFrom="cyan-400"
+              gradientTo="sky-600"
+            />
+          </div>
         </div>
       </div>
     </section>
