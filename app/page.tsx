@@ -2,6 +2,9 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import Testimonials from "../components/Testimonials"
+import SignUpBanner from "../components/SignUpBanner"
+import Footer from "../components/Footer"
 
 // Sample bicycle data
 const sampleBicycles = [
@@ -36,7 +39,7 @@ export default function SyntheticV0PageForDeployment() {
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
           <div className="flex w-full items-center justify-between py-6">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-black">
+              <Link href="/" className="text-2xl font-bold text-black hover:text-gray-700 transition-colors">
                 Bicycle Marketplace
               </Link>
             </div>
@@ -46,11 +49,11 @@ export default function SyntheticV0PageForDeployment() {
                 <input
                   type="text"
                   placeholder="Search bicycles..."
-                  className="px-4 py-2 border border-gray-300 rounded-l-md"
+                  className="px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-black text-white rounded-r-md"
+                  className="px-4 py-2 bg-black text-white rounded-r-md hover:bg-gray-800 transition-colors"
                 >
                   Search
                 </button>
@@ -58,7 +61,7 @@ export default function SyntheticV0PageForDeployment() {
               {/* Sign In Button */}
               <Link
                 href="/signin"
-                className="inline-block bg-black py-2 px-4 border border-transparent rounded-md text-base font-medium text-white"
+                className="inline-block bg-black py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-gray-800 transition-colors"
               >
                 Sign In
               </Link>
@@ -101,13 +104,22 @@ export default function SyntheticV0PageForDeployment() {
                 <p className="mt-1 text-sm text-gray-500">{bicycle.description}</p>
                 <div className="mt-4 flex justify-between items-center">
                   <p className="text-lg font-medium text-gray-900">${bicycle.price.toFixed(2)}</p>
-                  <button className="bg-black text-white px-4 py-2 rounded-md">View Details</button>
+                  <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors">View Details</button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Sign Up Banner */}
+      <SignUpBanner />
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }
