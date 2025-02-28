@@ -5,6 +5,7 @@ import Image from "next/image"
 import Testimonials from "../components/Testimonials"
 import SignUpBanner from "../components/SignUpBanner"
 import Footer from "../components/Footer"
+import FeaturedCategories from "../components/FeaturedCategories"
 
 // Sample bicycle data
 const sampleBicycles = [
@@ -71,12 +72,12 @@ export default function SyntheticV0PageForDeployment() {
       </header>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
+      <div className="bg-gradient-to-br from-slate-600 to-slate-800">
         <div className="relative px-6 lg:px-8">
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-32">
             <div className="text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl">Find Your Perfect Ride</h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
+              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Find Your Perfect Ride</h1>
+              <p className="mt-6 text-lg leading-8 text-gray-200">
                 Discover a wide range of quality bicycles from trusted sellers in our marketplace.
               </p>
             </div>
@@ -87,20 +88,19 @@ export default function SyntheticV0PageForDeployment() {
       {/* Featured Bikes Section */}
       <div className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-black">Featured Bikes</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Bikes</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Explore our selection of premium bicycles.
+            </p>
+          </div>
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {sampleBicycles.map((bicycle, index) => (
               <div key={bicycle.id} className="group">
                 <div className="relative w-full overflow-hidden rounded-lg pb-[60%]">
                   {/* Gradient backgrounds instead of images */}
                   <div 
-                    className={`absolute inset-0 ${
-                      index % 3 === 0 
-                        ? "bg-gradient-to-br from-blue-400 to-indigo-600" 
-                        : index % 3 === 1 
-                        ? "bg-gradient-to-br from-slate-400 to-slate-700" 
-                        : "bg-gradient-to-br from-zinc-400 to-zinc-700"
-                    }`}
+                    className={`absolute inset-0 bg-gradient-to-br from-slate-600 to-slate-800`}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="text-white text-lg font-medium opacity-80">Bicycle {index + 1}</span>
@@ -124,6 +124,9 @@ export default function SyntheticV0PageForDeployment() {
 
       {/* Sign Up Banner */}
       <SignUpBanner />
+
+      {/* Featured Categories */}
+      <FeaturedCategories />
 
       {/* Footer */}
       <Footer />

@@ -6,8 +6,6 @@ interface TestimonialProps {
   author: string;
   handle: string;
   position?: string;
-  gradientFrom: string;
-  gradientTo: string;
   size?: "small" | "large";
 }
 
@@ -16,8 +14,6 @@ function Testimonial({
   author, 
   handle, 
   position, 
-  gradientFrom, 
-  gradientTo,
   size = "small" 
 }: TestimonialProps) {
   return (
@@ -26,7 +22,7 @@ function Testimonial({
         <div className="flex flex-col h-full">
           <div className="p-6">
             <div className="flex items-center mb-4">
-              <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-${gradientFrom} to-${gradientTo} mr-3 flex-shrink-0`}></div>
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-600 to-slate-800 mr-3 flex-shrink-0"></div>
               <div>
                 <p className="font-semibold text-gray-900">{author}</p>
                 <p className="text-sm text-gray-500">{handle}</p>
@@ -49,10 +45,10 @@ function Testimonial({
 
 export default function Testimonials() {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Don't take it from us</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Don't take it from us</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             See what other people have to say.
           </p>
@@ -66,8 +62,6 @@ export default function Testimonials() {
               author="Parl Coppa"
               handle="@coppalipse"
               position="Professional Cyclist"
-              gradientFrom="blue-400"
-              gradientTo="indigo-600"
               size="large"
             />
           </div>
@@ -79,8 +73,6 @@ export default function Testimonials() {
               author="Mathew"
               handle="@heymatt_oo"
               position="Mountain Bike Enthusiast"
-              gradientFrom="emerald-400"
-              gradientTo="teal-600"
             />
           </div>
           
@@ -90,8 +82,6 @@ export default function Testimonials() {
               author="Alex"
               handle="@alex"
               position="Weekend Rider"
-              gradientFrom="amber-400"
-              gradientTo="orange-600"
             />
           </div>
           
@@ -101,8 +91,6 @@ export default function Testimonials() {
               author="Joshua"
               handle="@joshua"
               position="Vintage Bike Collector"
-              gradientFrom="rose-400"
-              gradientTo="pink-600"
             />
           </div>
           
@@ -112,8 +100,6 @@ export default function Testimonials() {
               author="Mandy"
               handle="@mandy"
               position="Triathlon Competitor"
-              gradientFrom="purple-400"
-              gradientTo="violet-600"
             />
           </div>
         </div>

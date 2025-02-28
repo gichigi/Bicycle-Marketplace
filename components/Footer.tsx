@@ -11,7 +11,7 @@ function FooterLink({ href, children }: FooterLinkProps) {
   return (
     <Link 
       href={href} 
-      className="text-gray-300 hover:text-white transition-colors"
+      className="text-gray-600 hover:text-black transition-colors"
     >
       {children}
     </Link>
@@ -19,18 +19,18 @@ function FooterLink({ href, children }: FooterLinkProps) {
 }
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-white font-bold text-lg mb-4">{children}</h3>
+  return <h3 className="text-black font-bold text-lg mb-4">{children}</h3>
 }
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-white py-12">
+    <footer className="bg-white text-gray-800 py-12 border-t border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Marketplace Info */}
           <div>
             <FooterHeading>Bicycle Marketplace</FooterHeading>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-600 mb-4">
               Find your perfect ride or sell your bicycle with ease.
             </p>
           </div>
@@ -60,17 +60,17 @@ export default function Footer() {
           {/* Newsletter */}
           <div>
             <FooterHeading>Newsletter</FooterHeading>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-600 mb-4">
               Stay updated with our latest offers and news.
             </p>
             <div className="flex gap-2">
               <Input 
                 type="email" 
                 placeholder="Enter your email" 
-                className="bg-slate-800 border-slate-700 text-white placeholder:text-gray-400 focus:border-slate-500"
+                className="bg-white border-gray-300 text-gray-800 placeholder:text-gray-400 focus:border-slate-500"
               />
               <Button 
-                className="bg-slate-600 hover:bg-slate-500 transition-colors"
+                className="bg-slate-700 hover:bg-slate-600 transition-colors"
               >
                 Subscribe
               </Button>
@@ -78,7 +78,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-slate-800 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
           <p>© {new Date().getFullYear()} Bicycle Marketplace. All rights reserved.</p>
         </div>
       </div>
