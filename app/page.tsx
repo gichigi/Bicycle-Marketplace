@@ -7,7 +7,10 @@ import SignUpBanner from "../components/SignUpBanner"
 import Footer from "../components/Footer"
 import FeaturedCategories from "../components/FeaturedCategories"
 
-// Sample bicycle data
+/**
+ * Sample bicycle data for the featured bikes section
+ * In a real application, this would come from an API or database
+ */
 const sampleBicycles = [
   {
     id: "1",
@@ -32,13 +35,31 @@ const sampleBicycles = [
   },
 ]
 
+/**
+ * Main Page Component
+ * 
+ * This is the homepage of the Bicycle Marketplace application.
+ * It combines multiple sections to create a complete landing page experience:
+ * 
+ * 1. Header - Navigation and search functionality
+ * 2. Hero - Main banner with headline and value proposition
+ * 3. Categories - Grid of bicycle categories for navigation
+ * 4. Featured Bikes - Showcase of highlighted bicycles
+ * 5. Testimonials - User reviews and social proof
+ * 6. Sign Up Banner - Call-to-action for sellers
+ * 7. Footer - Site navigation and additional information
+ * 
+ * The page uses a consistent color scheme of white, black, and slate,
+ * with alternating section backgrounds to create visual separation.
+ */
 export default function SyntheticV0PageForDeployment() {
   return (
     <div>
-      {/* Header */}
+      {/* ===== HEADER SECTION ===== */}
       <header className="bg-white shadow-sm">
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
           <div className="flex w-full items-center justify-between py-6">
+            {/* Logo/Brand */}
             <div className="flex items-center">
               <Link href="/" className="text-2xl font-bold text-black hover:text-gray-700 transition-colors">
                 Bicycle Marketplace
@@ -71,7 +92,7 @@ export default function SyntheticV0PageForDeployment() {
         </nav>
       </header>
 
-      {/* Hero Section */}
+      {/* ===== HERO SECTION ===== */}
       <div className="bg-gradient-to-br from-slate-600 to-slate-800">
         <div className="relative px-6 lg:px-8">
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-32">
@@ -85,21 +106,26 @@ export default function SyntheticV0PageForDeployment() {
         </div>
       </div>
 
-      {/* Featured Categories - Now moved up */}
+      {/* ===== CATEGORIES SECTION ===== */}
+      {/* Displays bicycle categories for easy navigation */}
       <FeaturedCategories />
 
-      {/* Featured Bikes Section - Now with gray background */}
+      {/* ===== FEATURED BIKES SECTION ===== */}
       <div className="bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+          {/* Section header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Discover Top Bikes</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Explore our selection of premium bicycles.
             </p>
           </div>
+          
+          {/* Bicycle cards grid */}
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {sampleBicycles.map((bicycle, index) => (
               <div key={bicycle.id} className="group">
+                {/* Bicycle image/placeholder */}
                 <div className="relative w-full overflow-hidden rounded-lg pb-[60%]">
                   {/* Gradient backgrounds instead of images */}
                   <div 
@@ -110,8 +136,12 @@ export default function SyntheticV0PageForDeployment() {
                     </div>
                   </div>
                 </div>
+                
+                {/* Bicycle details */}
                 <h3 className="mt-4 text-lg font-bold text-gray-900">{bicycle.name}</h3>
                 <p className="mt-1 text-sm text-gray-500">{bicycle.description}</p>
+                
+                {/* Price and action button */}
                 <div className="mt-4 flex justify-between items-center">
                   <p className="text-lg font-medium text-gray-900">${bicycle.price.toFixed(2)}</p>
                   <button className="bg-slate-700 text-white px-4 py-2 rounded-md hover:bg-slate-600 transition-colors">View Details</button>
@@ -122,13 +152,16 @@ export default function SyntheticV0PageForDeployment() {
         </div>
       </div>
 
-      {/* Testimonials Section - Now with white background */}
+      {/* ===== TESTIMONIALS SECTION ===== */}
+      {/* Displays user reviews and testimonials */}
       <Testimonials />
 
-      {/* Sign Up Banner */}
+      {/* ===== SIGN UP BANNER ===== */}
+      {/* Call-to-action for sellers to join the marketplace */}
       <SignUpBanner />
 
-      {/* Footer */}
+      {/* ===== FOOTER ===== */}
+      {/* Site navigation, links, and additional information */}
       <Footer />
     </div>
   )

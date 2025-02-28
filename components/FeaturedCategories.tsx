@@ -2,6 +2,13 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
+/**
+ * Interface for CategoryCard component props
+ * @property {string} title - The category name
+ * @property {string} description - Short description of the category
+ * @property {React.ReactNode} icon - SVG icon for the category
+ * @property {string} href - Link destination for the category
+ */
 interface CategoryCardProps {
   title: string;
   description: string;
@@ -9,19 +16,29 @@ interface CategoryCardProps {
   href: string;
 }
 
+/**
+ * CategoryCard Component
+ * 
+ * Displays a single category card with an icon, title, description, and action button.
+ * Each card has a consistent design with centered content and a hover effect.
+ * The explore button links to the category-specific page.
+ */
 function CategoryCard({ title, description, icon, href }: CategoryCardProps) {
   return (
     <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all">
       <CardContent className="pt-6">
+        {/* Icon container with circular background */}
         <div className="mb-4 flex justify-center">
           <div className="p-3 rounded-full bg-slate-100 text-slate-700">
             {icon}
           </div>
         </div>
+        {/* Category title and description */}
         <h3 className="text-xl font-semibold text-center mb-2">{title}</h3>
         <p className="text-gray-600 text-center">{description}</p>
       </CardContent>
       <CardFooter className="flex justify-center pb-6">
+        {/* Action button with link */}
         <Button asChild variant="outline" className="border-slate-700 text-slate-700 hover:bg-slate-50 hover:text-slate-800">
           <Link href={href}>Explore {title}</Link>
         </Button>
@@ -30,10 +47,24 @@ function CategoryCard({ title, description, icon, href }: CategoryCardProps) {
   )
 }
 
+/**
+ * FeaturedCategories Section Component
+ * 
+ * Displays a grid of bicycle categories to help users navigate to specific types.
+ * Each category is represented by a card with an icon, title, description, and action button.
+ * 
+ * The component uses a responsive grid layout that adjusts based on screen size:
+ * - Mobile: Single column
+ * - Tablet: Two columns
+ * - Desktop: Four columns
+ * 
+ * This section appears directly after the hero section to provide immediate navigation options.
+ */
 export default function FeaturedCategories() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Explore Categories</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -41,7 +72,9 @@ export default function FeaturedCategories() {
           </p>
         </div>
         
+        {/* Categories grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Road Bikes category */}
           <CategoryCard 
             title="Road Bikes"
             description="Sleek and fast bikes designed for paved surfaces and speed."
@@ -55,6 +88,7 @@ export default function FeaturedCategories() {
             href="/categories/road-bikes"
           />
           
+          {/* Mountain Bikes category */}
           <CategoryCard 
             title="Mountain Bikes"
             description="Durable bikes built for off-road trails and rough terrain."
@@ -72,6 +106,7 @@ export default function FeaturedCategories() {
             href="/categories/mountain-bikes"
           />
           
+          {/* Urban Commuters category */}
           <CategoryCard 
             title="Urban Commuters"
             description="Practical bikes for daily city riding and commuting."
@@ -89,6 +124,7 @@ export default function FeaturedCategories() {
             href="/categories/urban-commuters"
           />
           
+          {/* Electric Bikes category */}
           <CategoryCard 
             title="Electric Bikes"
             description="Power-assisted bikes for longer rides with less effort."

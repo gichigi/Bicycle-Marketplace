@@ -2,11 +2,22 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
+/**
+ * Interface for FooterLink component props
+ * @property {string} href - The link destination
+ * @property {React.ReactNode} children - The link text or content
+ */
 interface FooterLinkProps {
   href: string
   children: React.ReactNode
 }
 
+/**
+ * FooterLink Component
+ * 
+ * A styled link component specifically for the footer.
+ * Provides consistent styling and hover effects for all footer links.
+ */
 function FooterLink({ href, children }: FooterLinkProps) {
   return (
     <Link 
@@ -18,16 +29,36 @@ function FooterLink({ href, children }: FooterLinkProps) {
   )
 }
 
+/**
+ * FooterHeading Component
+ * 
+ * A styled heading component for footer sections.
+ * Provides consistent styling for all footer section headings.
+ */
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return <h3 className="text-black font-bold text-lg mb-4">{children}</h3>
 }
 
+/**
+ * Footer Component
+ * 
+ * The main footer for the application, containing:
+ * - Marketplace information
+ * - Quick links to important pages
+ * - Social media links
+ * - Newsletter signup
+ * - Copyright information
+ * 
+ * The footer uses a responsive grid layout that adjusts based on screen size:
+ * - Mobile: Single column
+ * - Desktop: Four columns
+ */
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-800 py-12 border-t border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Marketplace Info */}
+          {/* Marketplace Info Section */}
           <div>
             <FooterHeading>Bicycle Marketplace</FooterHeading>
             <p className="text-gray-600 mb-4">
@@ -35,7 +66,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links Section */}
           <div>
             <FooterHeading>Quick Links</FooterHeading>
             <ul className="space-y-2">
@@ -47,7 +78,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Connect With Us */}
+          {/* Social Media Links Section */}
           <div>
             <FooterHeading>Connect With Us</FooterHeading>
             <ul className="space-y-2">
@@ -57,7 +88,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter Signup Section */}
           <div>
             <FooterHeading>Newsletter</FooterHeading>
             <p className="text-gray-600 mb-4">
@@ -78,6 +109,7 @@ export default function Footer() {
           </div>
         </div>
         
+        {/* Copyright Section */}
         <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
           <p>© {new Date().getFullYear()} Bicycle Marketplace. All rights reserved.</p>
         </div>
